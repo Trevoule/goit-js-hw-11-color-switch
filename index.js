@@ -17,6 +17,8 @@ stopBtn.addEventListener('click', stopChange)
 let timerId = null;
 
 function changeWindowColor() {
+    startBtn.disabled = true;
+
     timerId = setInterval(() => {
 document.body.style.backgroundColor = randomColor(0, colors.length);
     }, 1000);
@@ -28,6 +30,7 @@ const randomColor = function (max, min) {
 }
 
 function stopChange() {
+    startBtn.disabled = false;
     clearInterval(timerId)
     console.log('Изменение остановлено');
     document.body.style.backgroundColor = randomColor(0, colors.length)
